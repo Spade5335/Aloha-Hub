@@ -135,8 +135,6 @@ function UI:CreateUI(Name, GameName)
 	MainTabFrame.Selectable = false
 	MainTabFrame.Size = UDim2.new(0, 120, 0, 201)
 	MainTabFrame.ScrollBarThickness = 4
-	print(MainTabFrame)
-	ApplyFrameResizingLib(MainTabFrame)
 	
 	firstT = true
 	
@@ -196,8 +194,6 @@ function UI:CreateUI(Name, GameName)
 
 		UICorner_9.CornerRadius = UDim.new(0, 5)
 		UICorner_9.Parent = Section
-
-		ApplyFrameResizingLib(Section);
 	
 
 		UIListLayout.Parent = Section
