@@ -52,8 +52,6 @@ function UI:CreateUI(Name, GameName)
 
 	UICorner_2.CornerRadius = UDim.new(0, 4)
 	UICorner_2.Parent = SectionFrame
-	
-	ApplyFrameResizingLib(SectionFrame);
 
 	pagesFolder.Name = "pagesFolder"
 	pagesFolder.Parent = SectionFrame
@@ -138,6 +136,8 @@ function UI:CreateUI(Name, GameName)
 	MainTabFrame.Size = UDim2.new(0, 120, 0, 201)
 	MainTabFrame.ScrollBarThickness = 4
 	
+	ApplyFrameResizingLib(MainTabFrame);
+	
 	firstT = true
 	
 	function UI:CreateTab(tabName)		
@@ -197,7 +197,7 @@ function UI:CreateUI(Name, GameName)
 		UICorner_9.CornerRadius = UDim.new(0, 5)
 		UICorner_9.Parent = Section
 
-		ApplyFrameResizingLib(SectionFrame);
+		ApplyFrameResizingLib(Section);
 	
 
 		UIListLayout.Parent = Section
