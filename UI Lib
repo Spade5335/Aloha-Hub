@@ -177,7 +177,7 @@ function UI:CreateUI(Name, GameName)
 		Section.BorderSizePixel = 0
 		Section.Position = UDim2.new(0, 0, 0.0560000017, 0)
 		Section.Selectable = false
-		Section.Size = UDim2.new(0, 320, 0, 260)
+		Section.Size = UDim2.new(0, 325, 0, 260)
 		Section.ScrollBarThickness = 5
 
 		UICorner_9.CornerRadius = UDim.new(0, 5)
