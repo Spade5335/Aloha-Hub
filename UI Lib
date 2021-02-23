@@ -24,7 +24,7 @@ function UI:CreateUI(Name, GameName)
 	Main.Name = "Main"
 	Main.Parent = AlohaHub
 	Main.AnchorPoint = Vector2.new(0.5, 0.5)
-	Main.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+	Main.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 	Main.Position = UDim2.new(0.523244798, 0, 0.5, 0)
 	Main.Size = UDim2.new(0, 461, 0, 284)
 
@@ -123,8 +123,19 @@ function UI:CreateUI(Name, GameName)
 	MainTabFrame.Selectable = false
 	MainTabFrame.Size = UDim2.new(0, 120, 0, 201)
 	MainTabFrame.ScrollBarThickness = 4
-	
-	firstT = true
+	-- local function ApplyFrameResizingLib(scrollingframe)
+	-- 	local calc = scrollingframe:FindFirstChild("UIGridLayout") or scrollingframe:FindFirstChild("UIListLayout") or nil;
+	-- 	local function update()
+	-- 		pcall(function()
+	-- 			local cS = calc.AbsoluteContentSize
+	-- 			scrollingframe.CanvasSize = UDim2.new(0,scrollingframe.Size.X,0,cS.Y + 30)
+	-- 		end)
+	-- 	end
+	-- 	calc.Changed:Connect(update)
+	-- 	update()
+	-- end
+	-- ApplyFrameResizingLib(MainTabFrame)
+	local firstT = true
 	
 	function UI:CreateTab(tabName)		
 		local tabButton = Instance.new("TextButton")
@@ -320,7 +331,7 @@ function UI:CreateUI(Name, GameName)
 		local Lable_5 = Instance.new("TextLabel")
 		local Close = Instance.new("ImageButton")
 		local UIListLayout_2 = Instance.new("UIListLayout")
-
+		listOfElements = listOfElements or {}
 		dropdownText = dropdownText or "Drop Down"
 		DropDownFrame.Name = dropdownText
 		DropDownFrame.Parent = pagesFolder:FindFirstChild(forTab)
@@ -373,7 +384,7 @@ function UI:CreateUI(Name, GameName)
 				end
 			end	
 			game.TweenService:Create(DropDownFrame, TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-				Size = UDim2.new(0, 283, 0, 37)
+				Size = UDim2.new(0, 283, 0, 38)
 			}):Play()
 			Close.Visible = true
 			Open.Visible = false
@@ -390,7 +401,10 @@ function UI:CreateUI(Name, GameName)
 		Lable_5.TextColor3 = Color3.fromRGB(255, 255, 255)
 		Lable_5.TextSize = 17.000
 		Lable_5.TextXAlignment = Enum.TextXAlignment.Left
-
+		local count = 0
+		for i, v in pairs(listOfElements) do
+			count = count + 1
+		end
 		Close.Name = "Close"
 		Close.Parent = OpenCloseFrame
 		Close.AnchorPoint = Vector2.new(0.5, 0)
@@ -403,7 +417,11 @@ function UI:CreateUI(Name, GameName)
 		Close.ImageRectOffset = Vector2.new(564, 284)
 		Close.ImageRectSize = Vector2.new(36, 36)
 		Close.MouseButton1Click:Connect(function()
-			local SizeList = 38 * listOfElements
+			local SizeList = 38 * count
+			if count < 5 then
+				SizeList += 19
+			end
+			
 			game.TweenService:Create(DropDownFrame, TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
 				Size = UDim2.new(0, 283, 0, SizeList)
 			}):Play()
@@ -420,7 +438,9 @@ function UI:CreateUI(Name, GameName)
 			Close.Visible = false
 			Open.Visible = true
 		end)
-		for i = 1, listOfElements, 1 do
+		
+
+		for i = 1, count, 1 do
 			local DropdownButton = Instance.new("TextButton")
 			local UICorner_15 = Instance.new("UICorner")
 			local id = Instance.new("NumberValue")
@@ -436,7 +456,7 @@ function UI:CreateUI(Name, GameName)
 			DropdownButton.Font = Enum.Font.SourceSans
 			DropdownButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 			DropdownButton.TextSize = 17.000
-			DropdownButton.Text = i
+			DropdownButton.Text = listOfElements[i]
 			DropdownButton.Visible = false
 			DropdownButton.BackgroundTransparency = 1
 			DropdownButton.TextTransparency = 1
@@ -449,6 +469,27 @@ function UI:CreateUI(Name, GameName)
 				game.TweenService:Create(DropdownButton, TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
 					BackgroundColor3 = Color3.fromRGB(50, 111, 255)
 				}):Play()
+
+				for i, v in pairs(DropDownFrame:GetChildren()) do
+					if v:IsA("TextButton") then
+						game.TweenService:Create(v, TweenInfo.new(.4, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+							BackgroundTransparency = 1,
+							TextTransparency = 1
+						}):Play()
+					end
+				end	
+				wait(.4)
+				for i, v in pairs(DropDownFrame:GetChildren()) do
+					if v:IsA("TextButton") then
+						v.Visible = false
+					end
+				end	
+				game.TweenService:Create(DropDownFrame, TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+					Size = UDim2.new(0, 283, 0, 38)
+				}):Play()
+				Close.Visible = true
+				Open.Visible = false
+
 				ChosenDropDown = DropdownButton.ID.Value
 				pcall(callback)
 			end)
@@ -655,4 +696,5 @@ function UI:Delete()
 		game.CoreGui["Aloha Hub"]:Destroy()
 	end
 end
+
 return UI
