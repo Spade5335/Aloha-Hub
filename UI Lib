@@ -24,7 +24,7 @@ function UI:CreateUI(Name, GameName)
 	Main.Name = "Main"
 	Main.Parent = AlohaHub
 	Main.AnchorPoint = Vector2.new(0.5, 0.5)
-	Main.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+	Main.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 	Main.Position = UDim2.new(0.523244798, 0, 0.5, 0)
 	Main.Size = UDim2.new(0, 461, 0, 284)
 
