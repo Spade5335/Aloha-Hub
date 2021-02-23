@@ -1,17 +1,5 @@
 local UI = {}
 
-local function ApplyFrameResizingLib(scrollingframe)
-	local calc = scrollingframe:FindFirstChild("UIGridLayout") or scrollingframe:FindFirstChild("UIListLayout") or nil;
-	local function update()
-		pcall(function()
-			local cS = calc.AbsoluteContentSize
-			scrollingframe.CanvasSize = UDim2.new(0,scrollingframe.Size.X,0,cS.Y + 30)
-		end)
-	end
-	calc.Changed:Connect(update)
-	update()
-end
-
 function UI:CreateUI(Name, GameName)
 	Name = Name or "Aloha Hub"
 	GameName = GameName or "Game"
@@ -136,8 +124,6 @@ function UI:CreateUI(Name, GameName)
 	MainTabFrame.Size = UDim2.new(0, 120, 0, 201)
 	MainTabFrame.ScrollBarThickness = 4
 	
-	ApplyFrameResizingLib(MainTabFrame)
-	
 	firstT = true
 	
 	function UI:CreateTab(tabName)		
@@ -196,8 +182,6 @@ function UI:CreateUI(Name, GameName)
 
 		UICorner_9.CornerRadius = UDim.new(0, 5)
 		UICorner_9.Parent = Section
-
-		ApplyFrameResizingLib(Section);
 	
 
 		UIListLayout.Parent = Section
@@ -653,6 +637,10 @@ function UI:CreateUI(Name, GameName)
 					releaseconnection:Disconnect()
 				end
 			end)
+			--put the code i sent you here
+			--NOTE: the 149 numbers are your button width, and 6 is height
+			--RENAME SLIDERDRAG TO YOUR DRAGGING FRAME
+			
 		end)
 		return Value
 	end
