@@ -136,7 +136,7 @@ function UI:CreateUI(Name, GameName)
 	MainTabFrame.Size = UDim2.new(0, 120, 0, 201)
 	MainTabFrame.ScrollBarThickness = 4
 	
-	ApplyFrameResizingLib(MainTabFrame);
+	ApplyFrameResizingLib(MainTabFrame)
 	
 	firstT = true
 	
