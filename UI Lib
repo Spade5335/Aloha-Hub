@@ -299,7 +299,7 @@ function UI:Main(uiName, keyBind, themeName)
             local Elements = {}
 
             function  Elements:Toggle(toggleName, callback)
-                local Toggle = Instance.new("Frame")
+                local Toggle = Instance.new("TextButton")
                 local ToggleUICorner_2 = Instance.new("UICorner")
                 local ToggleUICorner_3 = Instance.new("UICorner")
                 local ToggleBorder = Instance.new("TextButton")
