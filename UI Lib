@@ -271,11 +271,11 @@ function UI:Main(uiName, keyBind, themeName)
 
         if FirstTab then
             Page.Visible = true
-            TabButton.Selected.Visible = true
+            Selected.Visible = true
             FirstTab = false
         else
             Page.Visible = false
-            TabButton.Selected.Visible = false
+            Selected.Visible = false
         end
  
         TabButton.MouseButton1Click:Connect(function()
