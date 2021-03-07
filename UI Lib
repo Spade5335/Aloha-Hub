@@ -716,7 +716,7 @@ function UI:Main(uiName, keyBind, themeName)
             end
 
             function Elements:KeyBind(keybindName, lastKeyBind, callback)
-                local KeyBind = Instance.new("Frame")
+                local KeyBind = Instance.new("TextButton")
                 local UICorner_15 = Instance.new("UICorner")
                 local KeyBind_2 = Instance.new("TextButton")
                 local UICorner_16 = Instance.new("UICorner")
