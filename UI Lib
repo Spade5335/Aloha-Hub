@@ -156,7 +156,7 @@ function UI:Main(uiName, keyBind, themeName)
     RightLine.Size = UDim2.new(0, 1, 0, 274)
 
     Hider.Name = "Hider"
-    Hider.Parent = game.StarterGui.AcentHubOrange.MainFrame
+    Hider.Parent = MainFrame
     Hider.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
     Hider.BorderSizePixel = 0
     Hider.Size = UDim2.new(0, 431, 0, 1)
