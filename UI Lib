@@ -671,19 +671,19 @@ function UI:Main(uiName, keyBind, themeName)
                 max.MouseButton1Down:Connect(function()
                     Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 222) * bar.AbsoluteSize.X) + tonumber(minvalue)) or 0
 					pcall(callback, Value)
-                    bar:TweenSize(UDim2.new(0, math.clamp(mouse.X - bar.AbsolutePosition.X, 0, 222), 0, 9), "InOut", "Linear", 0.05, true)
+                    bar:TweenSize(UDim2.new(0, math.clamp(mouse.X - bar.AbsolutePosition.X, 0, 222), 0, 15), "InOut", "Linear", 0.05, true)
                     runconnection = game:GetService("RunService").Heartbeat:Connect(function()
                         val.Text = Value
                         Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 222) * bar.AbsoluteSize.X) + tonumber(minvalue))
 						pcall(callback, Value)
-                        bar:TweenSize(UDim2.new(0, math.clamp(mouse.X - bar.AbsolutePosition.X, 0, 222), 0, 9), "InOut", "Linear", 0.05, true)
+                        bar:TweenSize(UDim2.new(0, math.clamp(mouse.X - bar.AbsolutePosition.X, 0, 222), 0, 15), "InOut", "Linear", 0.05, true)
                     end)
                     releaseconnection = uis.InputEnded:Connect(function(Mouse)
                         if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
                             Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / 222) * bar.AbsoluteSize.X) + tonumber(minvalue))
 							pcall(callback, Value)
                             val.Text = Value
-                            bar:TweenSize(UDim2.new(0, math.clamp(mouse.X - bar.AbsolutePosition.X, 0, 222), 0, 9), "InOut", "Linear", 0.05, true)
+                            bar:TweenSize(UDim2.new(0, math.clamp(mouse.X - bar.AbsolutePosition.X, 0, 222), 0, 15), "InOut", "Linear", 0.05, true)
                             runconnection:Disconnect()
                             releaseconnection:Disconnect()
                         end
