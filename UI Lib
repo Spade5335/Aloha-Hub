@@ -7,8 +7,8 @@ local DefaultTheme = {
 local Objects = {}
 local Themes = {
     Orange = {
-        gameNameTheme = Color3.fromRGB(255, 157, 0),
-        buttonColor = Color3.fromRGB(255, 157, 0)
+        gameNameTheme = Color3.fromRGB(170, 0, 255),
+        buttonColor = Color3.fromRGB(170, 0, 255)
     },
     Blue = {
         gameNameTheme = Color3.fromRGB(0, 110, 255),
@@ -240,7 +240,7 @@ function UI:Main(uiName, keyBind, themeName)
         TabButton.Position = UDim2.new(0, 0, 0.0867346972, 0)
         TabButton.Size = UDim2.new(0, 131, 0, 32)
         TabButton.Font = Enum.Font.SourceSans
-        TabButton.Text = "Tab 2"
+        TabButton.Text = tabName
         TabButton.TextColor3 = Color3.fromRGB(100, 100, 100)
         TabButton.TextSize = 18.000
 		Objects[TabButton] = "BackgroundColor3"
@@ -358,7 +358,7 @@ function UI:Main(uiName, keyBind, themeName)
 					pcall(callback, Toggled)
                     if Toggled then
                         game.TweenService:Create(MainToggle, TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-                            BackgroundColor3 = themeList.buttonColor
+                            BackgroundColor3 = Color3.fromRGB(170, 0, 255)
                         }):Play()
                         done.Visible = true
                         game.TweenService:Create(done, TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
@@ -844,7 +844,7 @@ function UI:Main(uiName, keyBind, themeName)
                 buttonName = buttonName or "Button"
 
                 TextButton.Name = "Button"
-                TextButton.Parent = game.StarterGui.AcentHubOrange.MainFrame.Page
+                TextButton.Parent = Page
                 TextButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
                 TextButton.BorderSizePixel = 0
                 TextButton.Position = UDim2.new(0.00877192989, 0, 0, 0)
