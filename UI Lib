@@ -358,7 +358,7 @@ function UI:Main(uiName, keyBind, themeName)
 					pcall(callback, Toggled)
                     if Toggled then
                         game.TweenService:Create(MainToggle, TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-                            BackgroundColor3 = Color3.fromRGB(170, 0, 255)
+                            BackgroundColor3 = themeList.buttonColor
                         }):Play()
                         done.Visible = true
                         game.TweenService:Create(done, TweenInfo.new(.2, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
